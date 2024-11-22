@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form  name="login_form" onsubmit="submit_form(event)">
+        <input type="text" placeholder="email" required/><br/>
+        <input type="password" placeholder="password" required/><br/>
+        <input type="submit" value="login"/>
+        <input type="button" value="SignUp" onClick="create()"/>
+
+    </form>
+    <script type="text/javascript">
+        function submit_form(event)
+        {
+            event.preventDefault();
+            alert("login successfully");
+        }
+        function create()
+        {
+            window.location="signup.html";
+        }
+
+    </script>
+</body>
+</html>

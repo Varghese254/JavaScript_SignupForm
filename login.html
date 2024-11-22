@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SignUp Page</title>
+</head>
+<body align="center">
+  <h1>CREATE YOUR ACCOUNT</h1>
+  <form name="SignUp_form" onsubmit="create_account(event)">
+    <table cellspacing="2" align="center" cellpadding="8" border="0">
+      <tr>
+        <td>Name</td>
+        <td><input type="text" placeholder="Enter your name" id="n1" required /></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><input type="text" placeholder="Enter your email id" id="e1" required /></td>
+      </tr>
+      <tr>
+        <td>Set Password</td>
+        <td><input type="password" placeholder="Set a password" id="p1" required /></td>
+      </tr>
+      <tr>
+        <td>Confirm Password</td>
+        <td><input type="password" placeholder="Confirm your password" id="p2" required /></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <input type="submit" value="Create" />
+        </td>
+      </tr>
+    </table>
+  </form>
+  <script type="text/javascript">
+    function create_account(event) {
+      event.preventDefault(); // Prevent page reload
+      var n = document.getElementById("n1").value;
+      var e = document.getElementById("e1").value;
+      var p = document.getElementById("p1").value;
+      var cp = document.getElementById("p2").value;
+
+      var letters = /^[A-Za-z]+$/;
+      var email_val = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+      if (n === '' || e === '' || p === '' || cp === '') {
+        alert("Enter each detail correctly.");
+      } else if (!letters.test(n)) {
+        alert("Name is incorrect. It must contain alphabets only.");
+      } else if (!email_val.test(e)) {
+        alert("Invalid email format. Please enter a valid email ID.");
+      } else if (p !== cp) {
+        alert("Passwords do not match.");
+      } else if (p.length > 12) {
+        alert("Password maximum length is 12.");
+      } else if (p.length < 6) {
+        alert("Password minimum length is 6.");
+      } else {
+        alert("Your account has been created successfully. Redirecting to JavaTpoint.com...");
+        window.location = "https://www.javatpoint.com/";
+      }
+    }
+  </script>
+</body>
+</html>
